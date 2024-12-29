@@ -1,0 +1,19 @@
+{
+  "name": "pdfkit-invoice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "data-forge": "^1.10.2",
+    "data-forge-fs": "^0.0.9",
+    "pdf-poppler": "^0.2.1",
+    "pdfkit": "^0.13.0"
+  }
+}
