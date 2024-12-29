@@ -6,7 +6,7 @@ const path = require("path");
 const ProjectName = "BBW KL DES 2024";
 const InvoiceNumber = "2024/12/BBWKL";
 
-const BookTitleRow = "book title";
+const BookTitleColName = "book title";
 
 const pdfOutputDir = path.resolve(__dirname, "generated");
 if (!fs.existsSync(pdfOutputDir)) {
@@ -22,7 +22,7 @@ groupedByBuyer.forEach((group) => {
   const buyer = group.first().buyer;
   const phone = group.first().phone;
   const items = group.toArray().map((row) => ({
-    item: row[BookTitleRow],
+    item: row[BookTitleColName],
     description: row.format,
     quantity: row.quantity,
     amount: row.price,
