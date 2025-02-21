@@ -48,7 +48,7 @@ function generateCustomerInformation(doc, invoice) {
     .text(invoice.invoice_nr, 150, customerInformationTop)
     .font("Helvetica")
     .text("Invoice Date:", 50, customerInformationTop + 15)
-    .text(formatDate(new Date()), 150, customerInformationTop + 15)
+    .text(formatDateToCustom(new Date()), 150, customerInformationTop + 15)
     .text("Balance Due:", 50, customerInformationTop + 30)
     .text(
       formatCurrency(invoice.subtotal - invoice.paid),
@@ -65,6 +65,11 @@ function generateCustomerInformation(doc, invoice) {
     .moveDown();
 
   generateHr(doc, 252);
+}
+
+function formatDateToCustom(date) {
+  const options = { day: 'numeric', month: 'short', year: 'numeric' };
+  return date.toLocaleDateString('en-GB', options);
 }
 
 function generateInvoiceTable(doc, invoice) {
@@ -165,7 +170,7 @@ function generateTableRow(
   doc
     .fontSize(10)
     .text(item, 50, y)
-    .text(description, 250, y)
+    .text(description, 270, y)
     .text(unitCost, 300, y, { width: 90, align: "right" })
     .text(quantity, 370, y, { width: 90, align: "right" })
     .text(lineTotal, 0, y, { align: "right" });
