@@ -3,8 +3,8 @@ const { createInvoice } = require("./createInvoice.js");
 const dataForge = require("data-forge-fs");
 const path = require("path");
 
-const ProjectName = "BBW KL DES 2024";
-const InvoiceNumber = "2024/12/BBWKL";
+const ProjectName = "SALE WALKER ETA JUNI 2026";
+const InvoiceNumber = "202512-WALKER-1";
 
 const BookTitleColName = "book title";
 
@@ -47,9 +47,10 @@ groupedByBuyer.forEach((group) => {
 
   const invoicePath = path.resolve(
     __dirname,
-    `generated/invoice_${invoice.invoice_nr
+    `generated/${buyer.replace(/\s+/g, "_")}_${invoice.invoice_nr
       .replace(/\//g, "_")
-      .replace(/\s+/g, "_")}_${buyer.replace(/\s+/g, "_")}.pdf`
+      .replace(/\s+/g, "_")}.pdf`
   );
   createInvoice(invoice, invoicePath);
 });
+

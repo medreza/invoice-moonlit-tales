@@ -74,7 +74,7 @@ function formatDateToCustom(date) {
 
 function generateInvoiceTable(doc, invoice) {
   let i;
-  const invoiceTableTop = 330;
+  const invoiceTableTop = 280;
 
   doc.font("Helvetica-Bold");
   generateTableRow(
