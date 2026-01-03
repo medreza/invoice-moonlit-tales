@@ -86,12 +86,12 @@ function generateInvoiceTable(doc, invoice) {
     "Quantity",
     "Item Total"
   );
-  generateHr(doc, invoiceTableTop + 20);
+  generateHr(doc, invoiceTableTop + 15); // Adjusted header row spacing
   doc.font("Helvetica");
 
   for (i = 0; i < invoice.items.length; i++) {
     const item = invoice.items[i];
-    const position = invoiceTableTop + (i + 1) * 30;
+    const position = invoiceTableTop + (i + 1) * 20; // Reduced row height
     generateTableRow(
       doc,
       position,
@@ -102,10 +102,10 @@ function generateInvoiceTable(doc, invoice) {
       formatCurrency(item.amount)
     );
 
-    generateHr(doc, position + 20);
+    generateHr(doc, position + 15); // Adjusted horizontal line spacing
   }
 
-  const subtotalPosition = invoiceTableTop + (i + 1) * 30;
+  const subtotalPosition = invoiceTableTop + (i + 1) * 20; // Adjusted subtotal position
   generateTableRow(
     doc,
     subtotalPosition,
@@ -116,7 +116,7 @@ function generateInvoiceTable(doc, invoice) {
     formatCurrency(invoice.subtotal)
   );
 
-  const paidToDatePosition = subtotalPosition + 20;
+  const paidToDatePosition = subtotalPosition + 15; // Adjusted paid-to-date position
   generateTableRow(
     doc,
     paidToDatePosition,
@@ -127,7 +127,7 @@ function generateInvoiceTable(doc, invoice) {
     formatCurrency(invoice.paid)
   );
 
-  const duePosition = paidToDatePosition + 25;
+  const duePosition = paidToDatePosition + 20; // Adjusted balance due position
   doc.font("Helvetica-Bold");
   generateTableRow(
     doc,
