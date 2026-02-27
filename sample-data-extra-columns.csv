@@ -1,0 +1,6 @@
+buyer,phone,book title,format,quantity,price,notes,customer_id,region
+John Doe,08123456789,The Great Adventure,Hardcover,2,150000,VIP customer,C001,Jakarta
+John Doe,08123456789,Mystery Tales,Paperback,1,100000,Regular,C001,Jakarta
+Jane Smith,08198765432,Science Fiction,eBook,3,75000,New customer,C002,Surabaya
+Jane Smith,08198765432,Fantasy World,Hardcover,1,200000,Gift wrap requested,C002,Surabaya
+Bob Wilson,08111222333,Children Stories,Paperback,2,80000,Wholesale price,C003,Bandung

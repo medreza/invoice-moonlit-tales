@@ -1,3 +1,7 @@
 node_modules
 generated/*
 data.csv
+client/node_modules
+client/dist
+.DS_Store
+*.log
