@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './CSVUploader.css';
 
-function CSVUploader({ onCSVParsed, onCSVTextChange }) {
+function CSVUploader({ onCSVParsed, onCSVTextChange, onFileNameChange }) {
   const [csvText, setCsvText] = useState('');
   const [isDragging, setIsDragging] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -37,6 +37,11 @@ function CSVUploader({ onCSVParsed, onCSVTextChange }) {
           if (onCSVTextChange) onCSVTextChange(text);
         };
         reader.readAsText(file);
+        
+        // Extract filename without extension
+        const fileNameWithoutExt = file.name.replace(/\.csv$/i, '');
+        if (onFileNameChange) onFileNameChange(fileNameWithoutExt);
+        
         onCSVParsed(data);
       } else {
         setError(data.error || 'Failed to parse CSV');

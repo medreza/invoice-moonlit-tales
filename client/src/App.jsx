@@ -8,6 +8,7 @@ import './App.css';
 function App() {
   const [parsedData, setParsedData] = useState(null);
   const [csvText, setCsvText] = useState('');
+  const [fileName, setFileName] = useState('');
   const [message, setMessage] = useState({ type: '', text: '' });
 
   const handleCSVParsed = (data) => {
@@ -17,6 +18,10 @@ function App() {
 
   const handleCSVTextChange = (text) => {
     setCsvText(text);
+  };
+
+  const handleFileNameChange = (name) => {
+    setFileName(name);
   };
 
   const handleGenerateStart = () => {
@@ -49,6 +54,7 @@ function App() {
         <CSVUploader 
           onCSVParsed={handleCSVParsed} 
           onCSVTextChange={handleCSVTextChange}
+          onFileNameChange={handleFileNameChange}
         />
 
         {parsedData && <DataPreview parsedData={parsedData} />}
@@ -56,6 +62,7 @@ function App() {
         {parsedData && (
           <InvoiceForm
             csvText={csvText}
+            defaultProjectName={fileName}
             onGenerateStart={handleGenerateStart}
             onGenerateComplete={handleGenerateComplete}
             onGenerateError={handleGenerateError}

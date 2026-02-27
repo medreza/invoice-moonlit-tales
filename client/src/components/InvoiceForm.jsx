@@ -1,11 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './InvoiceForm.css';
 
-function InvoiceForm({ csvText, onGenerateStart, onGenerateComplete, onGenerateError }) {
+function InvoiceForm({ csvText, defaultProjectName, onGenerateStart, onGenerateComplete, onGenerateError }) {
   const [projectName, setProjectName] = useState('');
   const [invoiceNumber, setInvoiceNumber] = useState('');
   const [outputFormat, setOutputFormat] = useState('image');
   const [generating, setGenerating] = useState(false);
+
+  useEffect(() => {
+    if (defaultProjectName) {
+      setProjectName(defaultProjectName);
+    }
+  }, [defaultProjectName]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
