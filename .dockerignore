@@ -1,0 +1,52 @@
+# Node modules
+node_modules
+client/node_modules
+
+# Development files
+.git
+.gitignore
+*.md
+!README.md
+
+# Test files
+test
+tests
+*.test.js
+*.spec.js
+
+# CI/CD
+.github
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Build output
+dist
+build
+client/dist
+
+# Temporary files
+tmp
+temp
+*.tmp
+
+# Environment
+.env.local
+.env.development
+.env.test
+
+# Invoice output (generated at runtime)
+invoices/*.pdf
+invoices/*.png

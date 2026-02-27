@@ -1,0 +1,23 @@
+# Backend Dockerfile
+FROM node:18-alpine
+
+# Install poppler for PDF to image conversion
+RUN apk add --no-cache poppler-utils
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install --production
+
+# Copy server code and assets
+COPY server ./server
+COPY logo-moonlit-tales.jpeg ./
+
+# Expose port
+EXPOSE 3001
+
+# Start server
+CMD ["node", "server/index.js"]

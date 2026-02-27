@@ -15,11 +15,16 @@ A modern web application for generating professional invoices from CSV data. Upl
 
 ## Prerequisites
 
+### Option 1: Using Docker (Recommended)
+- Docker
+- Docker Compose
+
+### Option 2: Local Development
 - Node.js (v14 or higher)
 - npm or yarn
 - pdf-poppler (for PDF to image conversion)
 
-### Installing pdf-poppler Dependencies
+### Installing pdf-poppler Dependencies (Local Development Only)
 
 **macOS:**
 ```bash
@@ -34,7 +39,31 @@ sudo apt-get install poppler-utils
 **Windows:**
 Download and install from: https://github.com/oschwartz10612/poppler-windows/releases/
 
-## Installation
+## Quick Start with Docker
+
+The easiest way to run the application is using Docker:
+
+```bash
+make run
+```
+
+This will:
+- Build the Docker images
+- Start both backend and frontend services
+- Make the app available at http://localhost
+
+**Other useful commands:**
+```bash
+make stop      # Stop the application
+make logs      # View application logs
+make restart   # Restart the application
+make clean     # Clean up everything
+make help      # Show all commands
+```
+
+📖 **For detailed Docker instructions**, see [DOCKER.md](DOCKER.md)
+
+## Installation (Local Development)
 
 1. **Clone the repository**
 ```bash
@@ -56,20 +85,31 @@ cd ..
 
 ## Running the Application
 
-### Development Mode (Easiest)
+### Option 1: Local Development (Without Docker)
 
-Run both servers with a single command:
+**Easiest - Use Makefile:**
+```bash
+make run-local
+```
+
+This will start both servers:
+- Backend server on http://localhost:3001
+- Frontend on http://localhost:5173
+
+**Or use npm directly:**
 ```bash
 npm run dev
 ```
 
-This will start:
-- Backend server on http://localhost:3001
-- Frontend on http://localhost:5173
+**Run servers separately:**
+```bash
+make server  # Backend only
+make client  # Frontend only
+```
 
 **Open your browser and navigate to:** http://localhost:5173
 
-### Development Mode (Manual)
+### Option 2: Development Mode (Manual)
 
 You'll need two terminal windows:
 
