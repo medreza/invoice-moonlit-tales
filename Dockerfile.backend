@@ -1,8 +1,13 @@
 # Backend Dockerfile
 FROM node:18-alpine
 
-# Install poppler for PDF to image conversion
-RUN apk add --no-cache poppler-utils
+# Install poppler for PDF to image conversion and fonts for PDFKit
+RUN apk add --no-cache \
+    poppler-utils \
+    fontconfig \
+    ttf-dejavu \
+    ttf-liberation \
+    freetype
 
 WORKDIR /app
 

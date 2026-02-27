@@ -44,8 +44,14 @@ The Docker setup consists of two services:
 ### Backend Service
 - **Base Image**: `node:18-alpine`
 - **Port**: 3001
-- **Dependencies**: Includes poppler-utils for PDF to image conversion
+- **Dependencies**: 
+  - `poppler-utils` - PDF to image conversion
+  - `fontconfig` - Font configuration
+  - `ttf-dejavu` - DejaVu fonts
+  - `ttf-liberation` - Liberation fonts
+  - `freetype` - Font rendering engine
 - **Health Check**: Polls `/api/health` endpoint
+- **Note**: Fonts are essential for PDFKit to render text correctly
 
 ### Frontend Service
 - **Build Stage**: `node:18-alpine` (Vite build)
