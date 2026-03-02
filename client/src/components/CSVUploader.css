@@ -1,0 +1,155 @@
+.csv-uploader {
+  margin-bottom: 2rem;
+}
+
+.csv-uploader h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.drop-zone {
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: var(--bg-secondary);
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.drop-zone.dragging {
+  border-color: #4CAF50;
+  background-color: var(--success-bg);
+}
+
+.upload-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.drop-zone p {
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+}
+
+.or-text {
+  margin: 1rem 0;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.file-input-label {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.file-input-label:hover {
+  background-color: #45a049;
+}
+
+.file-input-label input[type="file"] {
+  display: none;
+}
+
+.paste-section {
+  margin-top: 1.5rem;
+}
+
+.paste-section textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border-color-light);
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  resize: vertical;
+  margin-bottom: 1rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: border-color 0.3s;
+}
+
+.paste-section textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.paste-section button {
+  padding: 0.75rem 2rem;
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.paste-section button:hover:not(:disabled) {
+  background-color: #0b7dda;
+}
+
+.paste-section button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  border-radius: 4px;
+  border-left: 4px solid var(--error-border);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .drop-zone {
+    padding: 2rem 1rem;
+  }
+  
+  .upload-icon {
+    font-size: 2.5rem;
+  }
+  
+  .file-input-label {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .paste-section textarea {
+    font-size: 0.85rem;
+  }
+  
+  .paste-section button {
+    width: 100%;
+    padding: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .csv-uploader h2 {
+    font-size: 1.3rem;
+  }
+  
+  .drop-zone {
+    padding: 1.5rem 1rem;
+  }
+  
+  .upload-icon {
+    font-size: 2rem;
+  }
+  
+  .drop-zone p {
+    font-size: 0.9rem;
+  }
+}
+

@@ -5,15 +5,25 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "server": "node server/index.js",
+    "client": "cd client && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "archiver": "^7.0.1",
+    "cors": "^2.8.6",
     "data-forge": "^1.10.2",
     "data-forge-fs": "^0.0.9",
-    "pdf-poppler": "^0.2.1",
-    "pdfkit": "^0.13.0"
+    "express": "^5.2.1",
+    "multer": "^2.0.2",
+    "pdfkit": "^0.13.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
   }
 }
