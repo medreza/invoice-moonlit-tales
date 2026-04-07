@@ -30,12 +30,12 @@ help:
 # Build Docker images
 build:
 	@echo "Building Docker images..."
-	docker-compose build
+	docker compose build
 
 # Build and run the application
 run:
 	@echo "Starting Invoice Generator..."
-	docker-compose up -d --build
+	docker compose up -d --build
 	@echo ""
 	@echo "✓ Application is starting!"
 	@echo ""
@@ -48,30 +48,30 @@ run:
 # Stop all containers
 stop:
 	@echo "Stopping containers..."
-	docker-compose down
+	docker compose down
 
 # Restart containers
 restart:
 	@echo "Restarting containers..."
-	docker-compose restart
+	docker compose restart
 
 # Clean up everything
 clean:
 	@echo "Cleaning up..."
-	docker-compose down -v --rmi all --remove-orphans
+	docker compose down -v --rmi all --remove-orphans
 	@echo "✓ Cleanup complete"
 
 # Show logs from all containers
 logs:
-	docker-compose logs -f
+	docker compose logs -f
 
 # Show backend logs
 logs-backend:
-	docker-compose logs -f backend
+	docker compose logs -f backend
 
 # Show frontend logs
 logs-frontend:
-	docker-compose logs -f frontend
+	docker compose logs -f frontend
 
 # Run in development mode (local, without Docker)
 run-local:
