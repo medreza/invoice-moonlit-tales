@@ -5,6 +5,22 @@ function DataPreview({ parsedData }) {
 
   const { data: groups, totalBuyers, totalItems, totalAmount } = parsedData;
 
+  // Group items by book title across all buyers
+  const bookSummaryMap = {};
+  groups.forEach((group) => {
+    group.items.forEach((item) => {
+      const title = item.item;
+      if (!bookSummaryMap[title]) {
+        bookSummaryMap[title] = { quantity: 0, amount: 0 };
+      }
+      bookSummaryMap[title].quantity += parseFloat(item.quantity) || 0;
+      bookSummaryMap[title].amount += parseFloat(item.amount) || 0;
+    });
+  });
+  const bookSummary = Object.entries(bookSummaryMap).sort((a, b) =>
+    a[0].localeCompare(b[0])
+  );
+
   return (
     <div className="data-preview">
       <h2>CSV Preview</h2>
@@ -56,6 +72,30 @@ function DataPreview({ parsedData }) {
                 </tr>
               );
             })}
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Summary by Book Title</h2>
+      <div className="preview-table-container">
+        <table className="preview-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Book Title</th>
+              <th>Total Qty</th>
+              <th>Total Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {bookSummary.map(([title, { quantity, amount }], index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{title}</td>
+                <td>{quantity}</td>
+                <td className="amount">Rp {amount.toLocaleString('id-ID')}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
